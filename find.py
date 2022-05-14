@@ -40,6 +40,7 @@ soup_num = 0
  
 def Download(url,title,doi):
  file = path + title + ".pdf"
+ # 对于有的sci地址而言，会在右侧显示出文章的预览，而有的不会，这里分别处理这两种情况。
  if os.path.exists(file) == False:
   r = requests.get(url, headers=head)
   r.raise_for_status()
@@ -61,8 +62,10 @@ def Download(url,title,doi):
    print("<" + title + ".pdf> downloaded!")
  else:
   print("<" + title + ".pdf> already exists!")
- 
+
+# Main 
 for line in f.readlines():
+ time.sleep(random.randint(15, 60)) # 随机的隔一段时间下载，防止被封ip地址，这里设置的是15 到60秒之间的随机数
  line = line[:-1] #去换行符
  title = line.split('|')[0]
  doi_pattern = 'doi:.+'
