@@ -1,5 +1,8 @@
 # sci-hub_spider
 
+### Update 20240911
+Add a txt document storing the site of Sci-hub to ensure having a valid Sci-hub site.
+
 ### python version
 1. Install conda.
 2. Install python.
